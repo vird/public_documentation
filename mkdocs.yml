@@ -42,7 +42,7 @@ nav:
         - 'Managing Gas': 'Smart Contract Lore/TVM_accept.md'
         
     - Gas Specs:
-        - 'Gas Calculation and Storage': Gas Specs/Gas Calculation Basics.md'
+        - 'Gas Calculation and Storage': 'Gas Specs/Gas Calculation Basics.md'
         - 'Transaction Fee Calculation': 'Gas Specs/Transaction Fee Calculation.md'
     - TON:
         - 'TVM Error Codes': 'TON Blockchain/TVM Error Codes.md'
