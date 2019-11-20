@@ -6,10 +6,10 @@ Describe how cool is to develop contracts for TON.
 
 ## Before you start
 (List main areas. 1 line per item, link to the detailed description)
-e,g.:
-smart-contract is...
-TON is...
-NB: TON is not Ethereum.  [link to key differences]
+- e.g.:
+- smart-contract is...
+- TON is...
+- NB: TON is not Ethereum.  [TODO: link to key differences summary]
 
 
 ## I am interested, let me in!

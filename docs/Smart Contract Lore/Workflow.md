@@ -50,8 +50,8 @@ getaccount 0:<MyContractAddress>
 Use script/SDK to do all the above in one command
 
 ## Check out samples
-[Sample contracts in Solidity](https://github.com/tonlabs/samples/tree/master/solidity)
-[Sample contracts in C](https://github.com/tonlabs/samples/tree/master/c)
+- [Sample contracts in Solidity](https://github.com/tonlabs/samples/tree/master/solidity)
+- [Sample contracts in C](https://github.com/tonlabs/samples/tree/master/c)
 
 
 ## Into the fray
