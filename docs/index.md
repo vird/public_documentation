@@ -1,5 +1,20 @@
-#TON DEV KNOWLEDGE-BASE
+# TON DEV KNOWLEDGE-BASE
 
+## TON DEV - everything you need to develop smart-contracts for TON 
+## (replace with something fancier)
+Describe how cool is to develop contracts for TON.
+
+## Before you start
+(List main areas. 1 line per item, link to the detailed description)
+e,g.:
+smart-contract is...
+TON is...
+NB: TON is not Ethereum.  [link to key differences]
+
+
+## I am interested, let me in!
+[I am interested, let me in!](Smart Contract Lore/Developing contracts)
+ 
 ## Products
 
 Browse the knowledge-base for guides on our products:
