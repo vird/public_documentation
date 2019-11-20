@@ -22,9 +22,9 @@ The SDK will be available as Open Source and more platform and language rappers 
 
 ```SQL
  query {
-   accounts(filter: {id: {eq: "0000000000000000000000000000000000000000000000000000000000000000"}}) {
+   accounts(filter: {id: {eq: "0:0000000000000000000000000000000000000000000000000000000000000000"}}) {
      id,
-     storage {last_trans_lt}
+     last_trans_lt
    }
  }
 ```
@@ -36,10 +36,8 @@ The SDK will be available as Open Source and more platform and language rappers 
    "data": {
      "accounts": [
        {
-         "id": "0000000000000000000000000000000000000000000000000000000000000000",
-         "storage": {
-           "last_trans_lt": 4
-         }
+         "id": "0:0000000000000000000000000000000000000000000000000000000000000000",
+         "last_trans_lt": "0x1d83f62c2"
        }
      ]
    }
@@ -51,28 +49,28 @@ The SDK will be available as Open Source and more platform and language rappers 
 ```sql
 query {
    transactions(filter: {
-     account_addr: {eq: "0000000000000000000000000000000000000000000000000000000000000000"}
-     lt: {eq: 4}
+     account_addr: {eq: "0:8900d4821d8a2ed48c70c65fa60a4bb6e0741049a5c830b1fbb1b418895c1a5f"},
+     lt: {eq: "0x243c63dc1"}
    }) {
      id,
      block_id
    }
- }
+}
 ```
 
 - result:
 
 ```HTML
 {
-   "data": {
-     "transactions": [
-       {
-         "id": "3badb9e5707db8e61e0e335e02eacb6df2a118512791b620c73a71d826e840c3",
-         "block_id": "4a8537f7499e122fc539b6250cd70168e80a129dcd684de6d0928d86105cf430"
-       }
-     ]
-   }
- }
+  "data": {
+    "transactions": [
+      {
+        "id": "eb2ec458adfbc72b62180501d0892e79b6fb0a0cd1a1fa125616a4d6a2d851a1",
+        "block_id": "922b64c98eb3d695b859ede7da5169c96f996ec4c8da7b755b72fad76ab4cd69"
+      }
+    ]
+  }
+}
 ```
 
 - query a block by an ID with the required data:
@@ -80,12 +78,10 @@ query {
 ```sql
 query {
    blocks(filter: {
-     id: {eq: "4a8537f7499e122fc539b6250cd70168e80a129dcd684de6d0928d86105cf430"}
+     id: {eq: "a82e433173c96ca4770283709b781095f63dba19b7a590025cd31b1d705ff896"}
    }) {
-     id,
-        info {
-       seq_no
-     }
+    id
+    seq_no
    }
  }
 ```
@@ -94,17 +90,15 @@ query {
 
 ```html
 {
-   "data": {
-     "blocks": [
-       {
-         "id": "4a8537f7499e122fc539b6250cd70168e80a129dcd684de6d0928d86105cf430",
-         "info": {
-           "seq_no": 1
-         }
-       }
-     ]
-   }
- }
+  "data": {
+    "blocks": [
+      {
+        "id": "a82e433173c96ca4770283709b781095f63dba19b7a590025cd31b1d705ff896",
+        "seq_no": 9182
+      }
+    ]
+  }
+}
 ```
 
 ------
