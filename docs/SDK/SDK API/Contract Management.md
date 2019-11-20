@@ -1,4 +1,4 @@
-In TON, smart-contract life-cycle is implemented via messages sent to the node. All messages are serialized and deserialized (encoded/decoded) according to the ABI.  For example, contract deployment is, actually, a complex message that involves several operations (message creation, signing, sending and processing).
+In TON, smart-contract life-cycle is implemented via messages sent to the node. All messages are serialized and deserialized (encoded/decoded using Base64) according to the ABI.  For example, contract deployment is, actually, a complex message that involves several operations (message creation, signing, sending and processing).
 
 TON Labs SDK offers several methods for flexible message handling to build any architecture you need. In most cases you can do with the deploy and run functions, but if for some reason you need to separate message creation, message signing, deploy and run, use the atomic functions covered below.
 
@@ -159,6 +159,7 @@ type TONContractMessage = {
 type TONContractDeployMessage = {
     address: string,
     message: TONContractMessage;
+}
 ```
 
 ### createRunMessage
@@ -215,34 +216,34 @@ Finally, `createDeployMessage` is used.
 
 ```javascript
 test('External Signing', async () => {
-    const { contracts, crypto } = tests.client;
-    const keys = await crypto.ed25519Keypair();
+        const { contracts, crypto } = tests.client;
+        const keys = await crypto.ed25519Keypair();
+        
+        var contract_package = events_package;
+        contract_package.abi["setTime"] = false;
     
-    var contract_package = events_package;
-    contract_package.abi["setTime"] = false;
-
-    const deployParams = {
-        package: contract_package,
-        constructorParams: {},
-        keyPair: keys,
-    };
-    const unsignedMessage = await contracts.createUnsignedDeployMessage(deployParams);
-    const signKey = await crypto.naclSignKeypairFromSecretKey(keys.secret);
-    const signBytesBase64 = await crypto.naclSignDetached({
-        base64: unsignedMessage.signParams.bytesToSignBase64,
-    }, signKey.secret, TONOutputEncoding.Base64);
-    const signed = await contracts.createSignedDeployMessage({
-        address: unsignedMessage.address,
-        createSignedParams: {
-            publicKeyHex: keys.public,
-            signBytesBase64: signBytesBase64,
-            unsignedBytesBase64: unsignedMessage.signParams.unsignedBytesBase64,
-        }
+        const deployParams = {
+            package: contract_package,
+            constructorParams: {},
+            keyPair: keys,
+        };
+        const unsignedMessage = await contracts.createUnsignedDeployMessage(deployParams);
+        const signKey = await crypto.naclSignKeypairFromSecretKey(keys.secret);
+        const signBytesBase64 = await crypto.naclSignDetached({
+            base64: unsignedMessage.signParams.bytesToSignBase64,
+        }, signKey.secret, TONOutputEncoding.Base64);
+        const signed = await contracts.createSignedDeployMessage({
+            address: unsignedMessage.address,
+            createSignedParams: {
+                publicKeyHex: keys.public,
+                signBytesBase64: signBytesBase64,
+                unsignedBytesBase64: unsignedMessage.signParams.unsignedBytesBase64,
+            }
+        });
+    
+        const message = await contracts.createDeployMessage(deployParams);
+        expect(signed.message.messageBodyBase64).toEqual(message.message.messageBodyBase64);
     });
-
-    const message = await contracts.createDeployMessage(deployParams);
-    expect(signed.message.messageBodyBase64).toEqual(message.message.messageBodyBase64);
-});
 ```
 
 ### сreateUnsignedRunMessage
