@@ -47,7 +47,7 @@ getaccount 0:<MyContractAddress>
 ```
 
 ## Just take me there
-Use script/SDK to do all the above in one command
+Use scripts to do all the above in one command
 
 ## Check out samples
 - [Sample contracts in Solidity](https://github.com/tonlabs/samples/tree/master/solidity)
