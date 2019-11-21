@@ -6,6 +6,8 @@ This is an ironical guide to smart contract development created by a writer for 
 
 ## def develop_code(null):
 
+**If** you want to start with TON smart contracts:
+
 - Check the current [ABI Spec]()
 
 // Contract life-cycle is basically a constant message exchange. Messages are used to address contract public functions and trigger transactions that change the contract state and to get contract data without changing its state. The message format in TON is based on the specification and rules for interaction with a specific contract are defined by its ABI. So before you start, check the ABI spec.
@@ -15,6 +17,10 @@ This is an ironical guide to smart contract development created by a writer for 
 - Check how you can [modify code of a deployed contract]()
 - Check our documents on [Solidity language feature implementation](Compilers/Solidity Compiler/Solidity Support Status)
 - Create your code now in Solidity, C, C++ 
+
+**result** = code
+
+**return** result
 
 ## def install_tools(preferred delivery):
 
