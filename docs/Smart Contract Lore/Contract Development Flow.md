@@ -39,7 +39,7 @@ This is an ironical guide to smart contract development created by a writer for 
 
 - ​     [tvm-linker utility](https://github.com/tonlabs/TVM-linker) 
 
-  ​     Follow guidelines in Readme's to build a toolchain
+&nbsp;&nbsp;&nbsp;&nbsp;Follow guidelines in Readme's to build a toolchain
 
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = working toolchain
 
@@ -61,7 +61,7 @@ This is an ironical guide to smart contract development created by a writer for 
 
 - ​     [Rust Library](https://github.com/tonlabs/ton-client-rs) 
 
-  ​     Follow guidelines in Readme's to create a project 
+&nbsp;&nbsp;&nbsp;&nbsp;Follow guidelines in Readme's to create a project 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = working toolchain with a CLI 
 
