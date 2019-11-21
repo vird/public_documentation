@@ -22,3 +22,4 @@ Learn more about smart-contract development, in particular:
 Browse our [Glossary](Glossary) for basic blockchain terms. 
 
 Check the Changelog for news and updates.
+

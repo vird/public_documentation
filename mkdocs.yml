@@ -34,6 +34,7 @@ nav:
             - 'Installing Ubuntu VM': 'SDK/Auxiliaries/Installing Ubuntu VM.md'
     
     - Developing Contracts:
+        - 'Contract Development Flow': 'Smart Contract Lore/Contract Development Flow.md'
         - 'ABI Specification V1': 'Smart Contract Lore/ABI Specification New.md'
         - 'ABI Specification V0': 'Smart Contract Lore/ABI Specification.md'
         - 'Key Generation and Use': 'Smart Contract Lore/Key Generation and Use.md'
