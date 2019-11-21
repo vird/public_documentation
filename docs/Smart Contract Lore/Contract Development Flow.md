@@ -4,7 +4,7 @@
 
 This is an ironical guide to smart contract development created by a writer for developers. Use it as a roadmap and keep smiling while on the way ; ). 
 
-## def develop_code(null):
+## def develop_code():
 
 &nbsp;&nbsp;**If** you want to start with TON smart contracts:
 
@@ -47,12 +47,9 @@ This is an ironical guide to smart contract development created by a writer for 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**then** get sources:
 
-- ​     [the SDK core]( https://github.com/tonlabs/TON-SDK )
-
-- ​     [TVM]( https://github.com/tonlabs/ton-labs-vm)
-
-- ​     [JS Library]( https://github.com/tonlabs/ton-client-js )
-
+- ​     [the SDK core]( https://github.com/tonlabs/TON-SDK )</br>
+- ​     [TVM]( https://github.com/tonlabs/ton-labs-vm)</br>
+- ​     [JS Library]( https://github.com/tonlabs/ton-client-js )</br>
 - ​     [Rust Library](https://github.com/tonlabs/ton-client-rs) 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Follow guidelines in Readme's to create a project 
