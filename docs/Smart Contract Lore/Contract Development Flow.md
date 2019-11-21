@@ -12,14 +12,10 @@ This is an ironical guide to smart contract development created by a writer for 
 
 // Contract life-cycle is basically a constant message exchange. Messages are used to address contract public functions and trigger transactions that change the contract state and to get contract data without changing its state. The message format in TON is based on the specification and rules for interaction with a specific contract are defined by its ABI. So before you start, check the ABI spec.
 
-- Check the general info on how [Gas is calculated in TON]() in general and for [transaction]()
-
-- Check how you can [manage gas in your contract]()
-
-- Check how you can [modify code of a deployed contract]()
-
-- Check our documents on [Solidity language feature implementation](Compilers/Solidity Compiler/Solidity Support Status)
-
+- Check the general info on how [Gas is calculated in TON]() in general and for [transaction]()</br>
+- Check how you can [manage gas in your contract]()</br>
+- Check how you can [modify code of a deployed contract]()</br>
+- Check our documents on [Solidity language feature implementation](Compilers/Solidity Compiler/Solidity Support Status)</br>
 - Create your code now in Solidity, C, C++ 
 
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = code.
@@ -33,10 +29,8 @@ This is an ironical guide to smart contract development created by a writer for 
 &nbsp;&nbsp;**if** preferred delivery option: source code from open source:
 &nbsp;&nbsp;&nbsp;&nbsp;**then** get the needed components: 
 
-- ​     [Solidity Compiler](https://github.com/tonlabs/TON-Solidity-Compiler)
-
-- ​     [LLVM Compiler]( https://github.com/tonlabs/TON-Compiler)
-
+- ​     [Solidity Compiler](https://github.com/tonlabs/TON-Solidity-Compiler)</br>
+- ​     [LLVM Compiler]( https://github.com/tonlabs/TON-Compiler)</br>
 - ​     [tvm-linker utility](https://github.com/tonlabs/TVM-linker) 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Follow guidelines in Readme's to build a toolchain
