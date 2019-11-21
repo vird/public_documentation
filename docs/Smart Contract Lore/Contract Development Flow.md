@@ -119,10 +119,6 @@ This is an ironical guide to smart contract development created by a writer for 
 
 ​         [TODO]  
 
-smart contract source == Fift/FunC
-
-​    [TODO]
-
 &nbsp;&nbsp;**return** result
 
 ## def get_boc(contract-address):
