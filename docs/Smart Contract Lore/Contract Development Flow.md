@@ -6,42 +6,66 @@ This is an ironical guide to smart contract development created by a writer for 
 
 ## def develop_code(null):
 
- **If** you want to start with TON smart contracts:
+&nbsp;&nbsp;**If** you want to start with TON smart contracts:
 
 - Check the current [ABI Spec]()
 
 // Contract life-cycle is basically a constant message exchange. Messages are used to address contract public functions and trigger transactions that change the contract state and to get contract data without changing its state. The message format in TON is based on the specification and rules for interaction with a specific contract are defined by its ABI. So before you start, check the ABI spec.
 
 - Check the general info on how [Gas is calculated in TON]() in general and for [transaction]()
+
 - Check how you can [manage gas in your contract]()
+
 - Check how you can [modify code of a deployed contract]()
+
 - Check our documents on [Solidity language feature implementation](Compilers/Solidity Compiler/Solidity Support Status)
+
 - Create your code now in Solidity, C, C++ 
 
-  **result** = code.</br>**return** result
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = code.
+
+&nbsp;&nbsp;**return** result
 
 ## def install_tools(preferred delivery):
 
-// To start you need to build your compilation and deployment toolchain there are several options
+// To start you need to build your compilation and deployment toolchain there are several options.
 
-   **if** preferred delivery = source code from open source:</br>     **then** get the needed components: 
+&nbsp;&nbsp;**if** preferred delivery option: source code from open source:
+&nbsp;&nbsp;&nbsp;&nbsp;**then** get the needed components: 
 
 - ​     [Solidity Compiler](https://github.com/tonlabs/TON-Solidity-Compiler)
+
 - ​     [LLVM Compiler]( https://github.com/tonlabs/TON-Compiler)
+
 - ​     [tvm-linker utility](https://github.com/tonlabs/TVM-linker) 
 
-​     Follow guidelines in Readme's to build a toolchain</br>	 **result** = working toolchain
+  ​     Follow guidelines in Readme's to build a toolchain
 
-   **elif** preferred delivery = TON Labs SDK/Node SE from containers:</br>    install the SDK/Node SE according to the [guidelines](SDK/Installation).</br>    **result** =  working toolchain with a [CLI](SDK/TONDEV CLI)</br> **else** preferred delivery ==  SDK/Node SE from sources:</br>     get sources:
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = working toolchain
+
+&nbsp;&nbsp;**elif** preferred delivery option TON Labs SDK/Node SE from containers:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**then** install the SDK/Node SE according to the [guidelines](SDK/Installation).
+
+&nbsp;&nbsp;&nbsp;&nbsp;**result** =  working toolchain with a [CLI](SDK/TONDEV CLI)
+
+&nbsp;&nbsp;**else** preferred delivery option  SDK/Node SE from sources:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**then** get sources:
 
 - ​     [the SDK core]( https://github.com/tonlabs/TON-SDK )
+
 - ​     [TVM]( https://github.com/tonlabs/ton-labs-vm)
+
 - ​     [JS Library]( https://github.com/tonlabs/ton-client-js )
+
 - ​     [Rust Library](https://github.com/tonlabs/ton-client-rs) 
 
-​     Follow guidelines in Readme's to create a project 
+  ​     Follow guidelines in Readme's to create a project 
 
-   **result** = working toolchain with a CLI </br>**return** **result**
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = working toolchain with a CLI 
+
+&nbsp;&nbsp;**return** **result**
 
 ## def compilation(smart contract source):
 
@@ -49,37 +73,49 @@ This is an ironical guide to smart contract development created by a writer for 
 
 // You need to compile the source code and there are several options depending on compiler preferences and source language.
 
-​    **if** compiler toolchain built from <u>source code</u>, call:
+&nbsp;&nbsp; **if** compiler toolchain built from <u>source code</u>:
+
+&nbsp;&nbsp;&nbsp;&nbsp; **then** call:
 
 ​       `tvm_linker compile [--lib <lib_file>] [--abi-json <abi_file>] [--genkey | --setkey <keyfile>] [-w <workchain_id>] [--debug] <source>`
 
-**result** = .tvc file
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = .tvc file
 
  // Note that if you use this compilation option, you get the key pair and the future contract address after compilation. You can still change the address at contract deployment and initialization via the SDK. 
 
-​        **elif**  compiler built from SDK/Node SE containers:</br>           then call the CLI command: `tondev sol`</br>           **result** = .tvc file
+&nbsp;&nbsp;**elif**  compiler built from SDK/Node SE containers:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**then** call the CLI command: `tondev sol`
+
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = .tvc file
 
 // With this option the future address is unknown.
 
-​        **else** compiler built from  SDK /Node SE raw sources:
+&nbsp;&nbsp;**else** compiler built from  SDK /Node SE raw sources:
 
 *​      then [TODO]*
 
-  smart contract source == C/C++:</br>       **if** compiler built from <u>source code</u>, call:
+  smart contract source == C/C++:
+
+&nbsp;&nbsp; **if** compiler built from <u>source code</u>:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**then** call:
 
 ​        `tvm_linker compile [--lib <lib_file>] [--abi-json <abi_file>] [--genkey | --setkey <keyfile>] [-w <workchain_id>] [--debug] <source>`
 
-​	  **result** = .tvc file
+&nbsp;&nbsp;&nbsp;&nbsp; **result** = .tvc file
 
  // Note that if you use this compilation option, you get the key pair and the future contract address after compilation. You can still change the address at contract deployment and initialization via the SDK.
 
-​    **elif** compiler built from SDK/Node SE pre-build container:
+&nbsp;&nbsp;**elif** compiler built from SDK/Node SE pre-build container:
 
 ​    *[TODO]*
-*​*            **result** = .tvc file 
+
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = .tvc file 
 
 // Note that with this option the future address unknown.
-            **else** compiler built from SDK raw sources:
+
+&nbsp;&nbsp;**else** compiler built from SDK raw sources:
 
 ​         [TODO]  
 
@@ -87,17 +123,21 @@ smart contract source == Fift/FunC
 
 ​    [TODO]
 
+&nbsp;&nbsp;**return** result
+
 ## def get_boc(contract-address):
 
  //The option available for .tvc. files generated by the tvm_linker (they have an address in the name). You need .boc files to work directly with TON testnet and lite client. 
 
- **call**:
+&nbsp;&nbsp;**call**:
 
 `
 tvm_linker message <contract-address> [--init] [--data] [-w]
 `
 
- **result** = .boc file</br>**return result**
+&nbsp;&nbsp;**result** = .boc file
+
+**return result**
 
 ## def get address(.tvc):
 
@@ -105,7 +145,9 @@ tvm_linker message <contract-address> [--init] [--data] [-w]
 
 [create deploy message link]
 
-​    **result** = address</br>  **return** result 
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = address
+
+ &nbsp;&nbsp;&nbsp;&nbsp;**return** result 
 
 ## def positive balance(address):
 
@@ -114,14 +156,15 @@ tvm_linker message <contract-address> [--init] [--data] [-w]
    Use TON Labs Giver to top up the address [add code]
 
  or transfer tokens to the address from an active contract you have
-    **result** = positive balance</br>  **return result**
+&nbsp;&nbsp;&nbsp;&nbsp;**result** = positive balance
+&nbsp;&nbsp;**return result**
 
 ## def deployment(compiled code):
 
 //You can use one of the options depending on your preferences and on the compilation option you used before.
-  compiled code = .tvc built from open source compilers</br>
-   then use tvm_linker deployment command from the project folder.</br>
-   result = contract deployed to address</br>    compiled code = .tvc built by the SDK:</br>
+  compiled code = .tvc built from open source compilers
+   then use tvm_linker deployment command from the project folder.
+   result = contract deployed to address</br>    compiled code = .tvc built by the SDK:
    create the deploy message in JS OR Rust</br>
    result = contract deployed to address</br>
   compiled code = .boc:</br>
