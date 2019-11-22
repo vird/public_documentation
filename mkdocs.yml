@@ -40,11 +40,10 @@ nav:
         - 'Key Generation and Use': 'Smart Contract Lore/Key Generation and Use.md'
         - 'Deploying contract from contract': 'Smart Contract Lore/Deploying contract from contract.md'
         - 'Modifying Contracts': 'Smart Contract Lore/TVM_setcode.md'
-        - 'Managing Gas': 'Smart Contract Lore/TVM_accept.md'
-        
-    - Gas Specs:
-        - 'Gas Calculation and Storage': 'Gas Specs/Gas Calculation Basics.md'
-        - 'Transaction Fee Calculation': 'Gas Specs/Transaction Fee Calculation.md'
+        - 'Managing Gas': 'Smart Contract Lore/TVM_accept.md'        
+        - Gas Specs:
+            - 'Gas Calculation and Storage': 'Gas Specs/Gas Calculation Basics.md'
+            - 'Transaction Fee Calculation': 'Gas Specs/Transaction Fee Calculation.md'
     - TON:
         - 'TVM Error Codes': 'TON Blockchain/TVM Error Codes.md'
         - 'TON Whitepaper': 'TON Blockchain/TON Specifications/TON Whitepaper.md'
@@ -59,8 +58,10 @@ nav:
        - 'TON and TVM': 'FAQ/TON and TVM.md'    
        - 'SDK and Integration': 'FAQ/SDK and Integration.md'
        - 'Glossary': 'Glossary.md' 
-    - Changelog:
+    - Release Notes:
+        - 'October 18, 2019': 'RN/RN_181019.md'
         - 'Archive 2019': 'Release Notes Archive.md'
+        
 
 theme:
     name: mkdocs
