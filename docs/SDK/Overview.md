@@ -45,4 +45,3 @@ You can use the installation procedure provided in the this guide to smoothly cr
 - <https://hub.docker.com/r/tonlabs/local-node>
 - <https://hub.docker.com/r/tonlabs/compilers>
 -  https://github.com/tonlabs/TON-SDK 
-
