@@ -128,9 +128,9 @@ tvm_linker message <contract-address> [--init] [--data] [-w]
 
 ## def get address(.tvc):
 
-//You need this function to get a future contract address when you used the SDK locally from containers or with Node SE.
+//You need this function to get a future contract address when you used the SDK locally. In this case createDeployMessage is used. See [more here](SDK/SDK API/Contract Management).
 
-[create deploy message link]
+createDeployMessage with the [SDK library](SDK/Client Libraries/Using Libraries/Node.js)
 
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = address
 
@@ -140,23 +140,28 @@ tvm_linker message <contract-address> [--init] [--data] [-w]
 
 //In TON you cannot deploy to an address with zero balance due to storage fees. See more in Gas Specs.
 
-   Use TON Labs Giver to top up the address [add code]
+ Use any available Giver to top up the address **OR** transfer tokens to the address from an active contract you have
 
- or transfer tokens to the address from an active contract you have
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = positive balance
-&nbsp;&nbsp;**return result**
+
+&nbsp;&nbsp;**return** result
 
 ## def deployment(compiled code):
 
 //You can use one of the options depending on your preferences and on the compilation option you used before.
-  compiled code = .tvc built from open source compilers
-   then use tvm_linker deployment command from the project folder.
-   result = contract deployed to address</br>    compiled code = .tvc built by the SDK:
-   create the deploy message in JS OR Rust</br>
-   result = contract deployed to address</br>
-  compiled code = .boc:</br>
-    Install TON Lite Client and follow its guidelines</br>  **result** = contract deployed to address</br>
-  **return** result
+
+&nbsp;&nbsp;&nbsp;&nbsp; **if** compiled code is .tvc built from open source compilers
+
+ &nbsp;&nbsp;&nbsp;&nbsp;  **then** use tvm_linker deployment command from the project folder.
+
+ &nbsp;&nbsp;&nbsp;&nbsp; ** result** = contract deployed to address
+
+&nbsp;&nbsp; **if**  compiled code is .tvc and contractPackage.js built by the SDK:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**then**  create the deploy message in JS OR Rust
+
+&nbsp;&nbsp;&nbsp;&nbsp; **result** = contract deployed to address
+  &nbsp;&nbsp;**return** result
 
 
 
