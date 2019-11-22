@@ -6,9 +6,11 @@
 
 - Install the latest version of [Docker](https://docs.docker.com/install/). See installation tips in the screenshots below:
 
-![img](https://tonlabs.zeroheight.com/uploads/LXwZDEvN59LmO5AEg9PXjg.png)
+![1](C:\Users\maria\public_documentation\docs\img\1.png)
 
-![img](https://tonlabs.zeroheight.com/uploads/HlTD8VkiUFQIvrd7ucCeHw.png)
+
+
+![2](C:\Users\maria\public_documentation\docs\img\2.png)
 
 - For Linux users, make sure that you are able to run docker as non-root user (see <https://docs.docker.com/install/linux/linux-postinstall/>);
 
