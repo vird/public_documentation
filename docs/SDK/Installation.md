@@ -90,14 +90,14 @@ Home directory may have one of the following formats:
 
 ### Rust
 
-1. Add a dependency into your cargo manifest:
+- Add a dependency into your cargo manifest:
 
 ```shell
 [dependencies]
 ton-client-rs = "0.11.1"
 ```
 
-2. Call the following command:
+- Call the following command:
 
 ```shell
 cargo update
