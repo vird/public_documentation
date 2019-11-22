@@ -25,6 +25,7 @@ This is an ironical guide to smart contract development created by a writer for 
 // To start you need to build your compilation and deployment toolchain there are several options.
 
 &nbsp;&nbsp;**if** preferred delivery option: source code from open source:
+
 &nbsp;&nbsp;&nbsp;&nbsp;**then** get the needed components: 
 
 - ​     [Solidity Compiler](https://github.com/tonlabs/TON-Solidity-Compiler)</br>
@@ -98,7 +99,7 @@ This is an ironical guide to smart contract development created by a writer for 
 
 &nbsp;&nbsp;**elif** compiler built from SDK/Node SE pre-build container:
 
-​    *[TODO]*
+​    *[TODO Descr]*
 
 &nbsp;&nbsp;&nbsp;&nbsp;**result** = .tvc file 
 
@@ -106,7 +107,7 @@ This is an ironical guide to smart contract development created by a writer for 
 
 &nbsp;&nbsp;**else** compiler built from SDK raw sources:
 
-​         [TODO]  
+​         [*TODO*]  
 
 &nbsp;&nbsp;**return** result
 
