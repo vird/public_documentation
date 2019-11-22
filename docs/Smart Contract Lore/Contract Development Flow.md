@@ -1,6 +1,4 @@
-## Contract Development Flow
-
-
+# Contract Development Flow
 
 This is an ironical guide to smart contract development created by a writer for developers. Use it as a roadmap and keep smiling while on the way ; ). 
 
