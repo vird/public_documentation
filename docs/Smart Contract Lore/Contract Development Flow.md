@@ -83,7 +83,7 @@ This is an ironical guide to smart contract development created by a writer for 
 
 &nbsp;&nbsp;**else** compiler built from  SDK /Node SE raw sources:
 
-*​      then [TODO]*
+*​      [TODO]*
 
   smart contract source == C/C++:
 
