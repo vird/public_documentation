@@ -6,11 +6,9 @@
 
 - Install the latest version of [Docker](https://docs.docker.com/install/). See installation tips in the screenshots below:
 
-![1](..\img\1.png)
+![1](C:\Users\maria\public_documentation\docs\SDK\1-1574407865003.png)
 
-
-
-![2](..\img\2.png)
+![2](C:\Users\maria\public_documentation\docs\SDK\2-1574407879287.png)
 
 - For Linux users, make sure that you are able to run docker as non-root user (see <https://docs.docker.com/install/linux/linux-postinstall/>);
 
