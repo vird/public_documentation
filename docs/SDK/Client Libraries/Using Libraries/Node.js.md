@@ -52,6 +52,26 @@ tondev sol hello -l js -L deploy
 
 `-L deploy is` used to include an `imageBase64` field into the generated JavaScript contract client code.
 
+L deploy with js flag generates a .js file with a contract wrapper class. This wrapper contains methods for deploying and calling the contract in a friendly format. There is the **deploy** method for constructor message (for more details check the [API description](SDK/SDK API/Contract Management)). Two class methods are implemented for each ABI function; one is named as the function itself, the other as `function_nameLocal`. The class has the package static variable that stores two fields: abi and imageBase64.
+
+##### Sample 1
+
+```javascript
+const hello = new HelloContract(client);
+await hello.deploy();
+console.log(hello.address, hello.keys);
+const response = await hello.sayHello();
+```
+
+##### Sample 2
+
+```javascript
+const existingKeys = { secret: ..., public: ...};
+const existingAddress = '...';
+const hello = new HelloContract(client, existingAddress, existingKeys);
+const response = await hello.sayHello();
+```
+
 ## Creating an app
 
 Before being able to play with a smart contract on the blockchain, we need a blockchain infrastructure for contract testing and debugging.
