@@ -571,6 +571,37 @@ GraphQL always returns large numbers as a hexadecimal number string starting wit
 
 To interact with large numbers in GraphQl one needs to use `BigInt(value)` where `value` can be both hexadecimal with `0x` prefix or a decimal number.  
 
+## ShardDesc
+
+Use the following query syntax to get sharddesc:
+
+```sql
+query {
+ blocks(
+  filter: { 
+    seq_no: { eq: 70000 }
+    workchain_id: { eq: -1 }
+  })
+ {
+  id
+  workchain_id
+  shard_hashes {
+    workchain_id
+    shard
+    descr {
+      seq_no
+      reg_mc_seqno
+      start_lt
+      end_lt
+      root_hash
+      file_hash
+      gen_utime
+    }
+  }
+}
+}
+```
+
 # Crypto Functions
 
 ## Library Overview
