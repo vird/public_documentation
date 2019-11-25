@@ -52,7 +52,7 @@ tondev sol hello -l js -L deploy
 
 `-L deploy is` used to include an `imageBase64` field into the generated JavaScript contract client code.
 
-L deploy with js flag generates a .js file with a contract wrapper class. This wrapper contains methods for deploying and calling the contract in a friendly format. There is the **deploy** method for constructor message (for more details check the [API description](SDK/SDK API/Contract Management)). Two class methods are implemented for each ABI function; one is named as the function itself, the other as `function_nameLocal`. The class has the package static variable that stores two fields: abi and imageBase64.
+L deploy with js flag generates a .js file with a contract wrapper class. This wrapper contains methods for deploying and calling the contract in a friendly format. There is the **deploy** method for constructor message (for more details check the [API description](SDK/SDK API/Contract Management)). Two class methods are implemented for each ABI function; one is named as the function itself, the other as `function_nameLocal`. The class has the package static variable that stores two fields: ABI and imageBase64.
 
 ##### Sample 1
 
