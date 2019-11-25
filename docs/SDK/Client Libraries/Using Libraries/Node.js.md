@@ -72,6 +72,8 @@ const hello = new HelloContract(client, existingAddress, existingKeys);
 const response = await hello.sayHello();
 ```
 
+To generate the contractPackage.js file manually, call `tondev gen -h` command of the CLI.
+
 ## Creating an app
 
 Before being able to play with a smart contract on the blockchain, we need a blockchain infrastructure for contract testing and debugging.
