@@ -59,6 +59,7 @@ nav:
        - 'SDK and Integration': 'FAQ/SDK and Integration.md'
        - 'Glossary': 'Glossary.md' 
     - Release Notes:
+        - 'November 22, 2019': 'RN/RN_221119.md'
         - 'October 18, 2019': 'RN/RN_181019.md'
         - 'Archive 2019': 'Release Notes Archive.md'
         
