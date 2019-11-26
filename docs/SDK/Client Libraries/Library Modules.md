@@ -290,15 +290,11 @@ The `queries` module of the Client library defines four objects to access each c
   query {
   accounts(
     filter: {
-      id: {eq: "a46af093b38fcae390e9af5104a93e22e82c29bcb35bf88160e4478417028884"}
+      id: {eq: "0:a46af093b38fcae390e9af5104a93e22e82c29bcb35bf88160e4478417028884"}
     }
   ) {
     id
-    storage{
-      balance{
-        Grams
-      }
-    }
+    balance
   }
 }
 ```
