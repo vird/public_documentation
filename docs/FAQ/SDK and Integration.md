@@ -103,6 +103,31 @@ query {
 
 ------
 
+**Q**: I made a query for transaction data:
+
+```sql
+query {
+  transactions(filter:{in_msg:{ne:null}}) {
+    id
+    block_id
+    in_message {
+      id
+      value
+    }
+    out_messages {
+      id
+      value
+    }
+  }
+}
+```
+
+And it returned `"out_messages": []`in multiple instances. What does it mean?
+
+**A**: An empty array means that there were no events in transactions (calls to other contracts).
+
+------
+
 **Q**: Does your node currently (or will you) provide an API to submit pre-signed messages (e.g. a pre-signed bag-of-cells message)? Can we have this endpoint (not a CLI interface) if it does not exist today?
 
 **A**: To send pre-generated messages, use the `processMessage` function of the SDK JS client. Also, there will be a function to construct unsigned messages. You will be able to sign generated message yourself and then to send it using the SDK. 
