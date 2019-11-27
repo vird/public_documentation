@@ -24,6 +24,7 @@ nav:
             - 'Library Modules': 'SDK/Client Libraries/Library Modules.md'
             - 'Rust': 'SDK/Client Libraries/Using Libraries/Rust.md'
             - 'JavaScript': 'SDK/Client Libraries/Using Libraries/Node.js.md'
+            - 'GraphQL Fields': 'SDK/Client Libraries/graphql_reference_list.md'
         - SDK API:
             - 'Contract Management': 'SDK/SDK API/Contract Management.md'
         
