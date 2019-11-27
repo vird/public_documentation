@@ -122,7 +122,7 @@ query {
 }
 ```
 
-And it returned `"out_messages": []`in multiple instances. What does it mean?
+And it returned `"out_messages":[]`in multiple instances. What does it mean?
 
 **A**: An empty array means that there were no events in transactions (calls to other contracts).
 
