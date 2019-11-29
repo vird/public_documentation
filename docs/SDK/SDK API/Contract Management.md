@@ -350,7 +350,7 @@ const events_package: TONContractPackage = {
 
 ### **decodeOutputMessageBody**
 
-`decodeOutputMessageBody` - decodes an outbound message body created externally.
+`decodeOutputMessageBody` - decodes an outbound message body. It has an optional `internal` parameter; bu default it is set to `false` 
 
 ### **decodeRunOutput**
 
