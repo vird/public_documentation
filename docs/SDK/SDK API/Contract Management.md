@@ -262,7 +262,7 @@ This method creates a signed messaged from `createUnsignedDeploy` message and th
 
 ### createSignedRunMessage
 
-content under construction
+This method is similar to the above, but works withing the `Run` method group.
 
 ### createRunBody
 
@@ -280,7 +280,7 @@ const runBody = await contracts.createRunBody({
     });
 ```
 
- 
+  This method supports SETCODE and deploy of one contract by another contract. 
 
 ### decodeRunOutput
 
