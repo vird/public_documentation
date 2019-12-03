@@ -170,4 +170,30 @@ For example you can generate message to call the contract by SDK function. That 
 
 **A**: The sample message at <https://test.ton.org/testnet/transaction?account=EQDXAswEFIWNg6VTijwchiMYcvAGRTr3yCWln53RLWNq8CvQ<=195287000001&hash=7F09EC8EEBBAF510D7873CD3DEC494B2DD28A790A7A46E83D0A183F3E672B509> has no init (it is `init:nothing`), and a transaction with this message is aborted. But in general, the StateInit data attached to a message is used by the node only once: when a contract is in the Uninit state. Replays of such message can succeed, but the contract code will not be changed. An Init msg created with sol2tvm compiler and tvm_linker contains an encoded constructor call. Now you can call constructor multiple times, but in future releases it will be changed.
 
+------
+
+**Q**: Can I convert an address into base64 with workchain ID encoded?
+
+**A**: Yes, there is an SDK option for it, check the sample code:
+
+```javascript
+const address1 = {
+        address: '0:c7202c3af71b07cfe1d92626b3d660feb5bb808c2825b0ac6f15c11a101d3117',
+        convertTo: 'Base64',
+        base64Params: {    url: false,
+            test: true,
+            bounce: false,},
+    }
+    const address2  = {
+        address: '0QCVRQAmm2wSJwyrIoIrOxf8XHV5fkA-s_RAxTA8Jc_80-2Q',
+        convertTo: 'Base64',
+        base64Params: {    url: false,
+            test: true,
+            bounce: false,},
+    }
+    
+
+    const bounceable1 = (await client.contracts.convertAddress(address1)).address; 
+    const bounceable2 = (await client.contracts.convertAddress(address2)).address;
+```
 
