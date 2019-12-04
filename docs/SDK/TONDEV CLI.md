@@ -42,15 +42,11 @@ To start and stop both containers, use the `tondev start` and `tondev stop`�
 
 `tondev info`
 
-## **Building local nodes network**
+## **Simulating Multiple Node Network**
 
-To test your contract at multiple nodes, create a network. A network consists of multiple inter-connected local nodes. 
+​	A single run of the tondev `setup` command creates a single local network with the communication endpoint bound to port 80 ( server parameter in the relevant client library config). 
 
-A single run of `tondev setup` creates a single local node listening to
-
-port 80.
-
-In order to add another node:
+To simulate a multiple network (blockchain) environment, initiate another Local Network instance and mount it on another port like this:
 
     tondev add anotherNode
     
