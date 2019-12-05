@@ -197,3 +197,14 @@ const address1 = {
     const bounceable2 = (await client.contracts.convertAddress(address2)).address;
 ```
 
+------
+
+**Q**: It looks like some fields in the scheme are null and some are 0. For example, "ihr_fee": null, "fwd_fee": null, "import_fee": "0x0", "value": null. What is the difference?
+
+**A**: Null means that the field does not exist for this type of message, “0x0” means the zero value of fee. For example:
+
+1. For Internal messages (msg_type=1) ihr_fee and fwr_fee are defined, both can be “0x0” and more than “0x0”.
+
+2. For external inbound messages (msg_type=1) only “import_fee” is defined. For now it is always equal to “0x0” in TON Blockchain, this is why it is always equal to “0x0” in our database.
+
+3. For external outbound messages (msg_type=2) there are no fee fields, this is why all fields are null.
