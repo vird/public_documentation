@@ -141,30 +141,87 @@ A type to specify the parameter of the inbound message. You can query the source
 
 
 
+## Transaction Type
+
+The table below shows how our GraphQL scheme matches fields of TON transaction TLB schemes. In most cases, the specification is quoted to describe the fields. 
+
+For more details, check the specification at https://test.ton.org/tblkch.pdf.
+
+| **FIELD**                                                    | **DESCRIPTION** | **COMMENT**                                                  |
+| ------------------------------------------------------------ | --------------- | ------------------------------------------------------------ |
+| **tr_type**                                                  |                 | Transaction type according to the original blockchain specification, clause 4.2.4. The following value mapping is used:ordinary: 0storage: 1tick: 2tock: 3splitPrepare: 4splitInstall: 5mergePrepare: 6mergeInstall: 7 |
+| **status**                                                   |                 | Transaction processing status with the following mapping: unknown: 0preliminary: 1proposed: 2finalized: 3refused: 4 |
+| block_id                                                     |                 |                                                              |
+| account_addr                                                 |                 |                                                              |
+| **lt**                                                       |                 | Logical time. A component of the TON Blockchain that also plays an important role in message delivery is the logical time, usually denoted by Lt. It is a non-negative 64-bit integer, assigned to certain events. For more details, see the TON blockchain specification |
+| prev_trans_hash                                              |                 |                                                              |
+| prev_trans_lt                                                |                 |                                                              |
+| now                                                          |                 |                                                              |
+| **outmsg_cnt**                                               |                 | The number of generated outbound messages (one of the common transaction parameters defined by the specification) |
+| **orig_status**                                              |                 | The initial state of account. Note that in this case the query may return 0, if the account was not active before the transaction and 1 if it was already active |
+| **end_status**                                               |                 | The end state of an account after a transaction, 1 is returned to indicate a finalized transaction at an active account |
+| in_msg                                                       |                 |                                                              |
+| in_message                                                   |                 |                                                              |
+| **out_msgs**                                                 |                 | Dictionary of transaction outbound messages as specified in the specification |
+| out_message                                                  |                 |                                                              |
+| **total_fees**                                               |                 | Total amount of fees that entails account state change and used in Merkle update |
+| total_fees_other                                             |                 |                                                              |
+| **old_hash****new_hash**                                     | uint256         | Merkle update fields                                         |
+| credit_first                                                 |                 |                                                              |
+| storage   	storage_fees_collected       	storage_fees_due      	status_change |                 | The storage phase is present in several kinds of transactions, so a common representation for this phase includes three fields. The first defines the amount , the second can be empty, the third specifies the account status change |
+| **CREDIT (phase)**                                           |                 | The account is credited with the value of the inbound message received. |
+| due_fees_collected                                           |                 |                                                              |
+| credit                                                       |                 |                                                              |
+| credit_other                                                 |                 |                                                              |
+| **COMPUTE (phase)**                                          |                 | The code of the smart contract is invoked inside an instance of TVM with adequate parameters, including a copy of the inbound message and of the persistent data, and terminates with an exit code, the new persistent data, and an action list (which includes, for instance, outbound messages to be sent). The processing phase may lead to the creation of a new account (uninitialized or active), or to the activation of a previously uninitialized or frozen account. The gas payment, equal to the product of the gas price and the gas consumed, is exacted from the account balance. If there is no reason to skip the computing phase, TVM is invoked and the results of the computation are logged. Possible parameters are covered below. |
+| compute_type                                                 |                 |                                                              |
+| **skipped_reason**                                           |                 | Reason for skipping the compute phase. According to the specification, the phase can be skipped due to the absence of funds to buy gas, absence of state of an account or a message, failure to provide a valid state in the message |
+| **success**                                                  |                 | This flag is set if and only if `exit_code` is either 0 or 1. |
+| **msg_state_used**                                           |                 | This parameter reflects whether the state passed in the message has been used. If it is set, the `account_activated` flag is used (see below) |
+| **account_activated**                                        |                 | The flag reflects whether this has resulted in the activation of a previously frozen, uninitialized or non-existent account. |
+| **gas_fees**                                                 |                 | This parameter reflects the total gas fees collected by the validators for executing this transaction. It must be equal to the product of gas_used and gas_price from the current block header. |
+| gas_used                                                     |                 |                                                              |
+| **gas_limit**                                                |                 | This parameter reflects the gas limit for this instance of TVM. It equals the lesser of either the Grams credited in the credit phase from the value of the inbound message divided by the current gas price, or the global per-transaction gas limit. |
+| **gas_credit**                                               |                 | This parameter may be non-zero only for external inbound messages. It is the lesser of either the amount of gas that can be paid from the account balance or the maximum gas credit |
+| mode                                                         |                 |                                                              |
+| **exit_code**		**exit_arg**                            |                 | These parameters represent the status values returned by TVM; for a successful transaction, `exit_code` has to be 0 or 1 |
+| **vm_steps**                                                 |                 | the total number of steps performed by TVM (usually equal to two plus the number of instructions executed, including implicit RETs) |
+| **vm_init_state_hash**	**vm_final_state_hash**            |                 | These parameters are the representation hashes of the original and resulting states of TVM |
+| **ACTION (phase)**                                           |                 | If the smart contract has terminated successfully (with exit code 0 or 1), the actions from the list are performed. If it is impossible to perform all of them—for example, because of insufficient funds to transfer with an outbound message—then the transaction is aborted and the account state is rolled back. The transaction is also aborted if the smart contract did not terminate successfully, or if it was not possible to invoke the smart contract at all because it is uninitialized or frozen. |
+| success                                                      |                 |                                                              |
+| valid                                                        |                 |                                                              |
+| **no_funds**                                                 |                 | The flag indicates absence of funds required to create an outbound message |
+| **status_change**                                            |                 | Account status change according to the list of statuses provided by the specification |
+| total_fwd_fees                                               |                 |                                                              |
+| total_action_fees                                            |                 |                                                              |
+| result_code                                                  |                 |                                                              |
+| result_arg                                                   |                 |                                                              |
+| tot_actions                                                  |                 |                                                              |
+| spec_actions                                                 |                 |                                                              |
+| skipped_actions                                              |                 |                                                              |
+| msgs_created                                                 |                 |                                                              |
+| action_list_hash                                             |                 |                                                              |
+| total_msg_size_cells                                         |                 |                                                              |
+| total_msg_size_bits                                          |                 |                                                              |
+| **BOUNCE (phase)**                                           |                 | If the transaction has been aborted, and the inbound message has its bounce flag set, then it is “bounced” by automatically generating an outbound message (with the bounce flag clear) to its original sender. Almost all value of the original inbound message (minus gas payments and forwarding fees) is transferred to the generated message, which otherwise has an empty body. |
+| bounce_type                                                  |                 |                                                              |
+| msg_size_cells                                               |                 |                                                              |
+| msg_size_bits                                                |                 |                                                              |
+| req_fwd_fees                                                 |                 |                                                              |
+| msg_fees                                                     |                 |                                                              |
+| fwd_fees                                                     |                 |                                                              |
+| aborted                                                      |                 |                                                              |
+| destroyed                                                    |                 |                                                              |
+| tt                                                           |                 |                                                              |
+| split_info                                                   |                 | The fields below cover split prepare and install transactions |
+| cur_shard_pfx_len                                            |                 | length of the current shard prefix                           |
+| acc_split_depth                                              |                 |                                                              |
+| this_addr                                                    |                 |                                                              |
+| sibling_addr                                                 |                 |                                                              |
+| prepare_transaction                                          |                 |                                                              |
+| installed                                                    |                 |                                                              |
+| proof                                                        |                 |                                                              |
+| boc                                                          |                 |                                                              |
 
 
-
-
-
-
-### Additional Field Descriptions
-
-Also check the schema at https://github.com/tonlabs/ton-q-server/blob/master/server/db.schema.v2.js
-
-| **FIELD**                               | **DESCRIPTION**                                              |
-| :-------------------------------------- | ------------------------------------------------------------ |
-| **tr_type**                             | Transaction type according to the original blockchain specification, clause 4.2.4. The following value mapping is used:</br> ordinary: 0</br>storage: 1</br>tick: 2</br>tock: 3</br>splitPrepare: 4</br>splitInstall: 5</br>mergePrepare: 6</br>mergeInstall: 7 |
-| **status**                              | transaction processing status with the following mapping:</br> unknown: 0</br>preliminary: 1</br>proposed: 2</br>finalized: 3</br>refused: 4 |
-| **orig_status**                         | The initial state of account. Note that in this case the query may return 0, if the account was not active before the transaction and 1 if it was already active |
-| **end_status**                          | The end state of an account after a transaction, 1 is returned to indicate a finalized transaction at an active account |
-| **value**                               | Stands for the amount in [test]  Grams                       |
-| **value_other**                         | Stands for the amount other tokens (this field is reserved for tokens that may be added in the future |
-| **total_fees**                          | see above                                                    |
-| **total_fees_other**                    | see above                                                    |
-| **src**                                 | message sender address                                       |
-| **dst**                                 | message receiver address                                     |
-| **transaction.block_id**                | The name is self-explanatory, but there are particularities. In case of external inbound message, `transaction.block_id` should always match the `in_msg.block_id` |
-| **transaction.in_message.block_id**     | The ID of a block the delivered the transaction with the original message. |
-| **transaction.out_message[i].block_id** |                                                              |
-| **in_msg.block_id**                     | The name is self-explanatory, but there are particularities. Tn case of an internal message, the `msg.block_id` will match whichever block generated the internal message as an `out_msg`. |
-| out_msg                                 |                                                              |
+ 
